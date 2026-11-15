@@ -494,6 +494,7 @@ window.dash = (function () {
     const xa = svg.append('g').attr('transform', `translate(0,${h - m.b})`).call(d3.axisBottom(x).tickSize(0)).attr('font-size', null).attr('font-family', null);
     xa.select('.domain').attr('stroke', MIST);
     xa.selectAll('text').attr('fill', MIST).attr('font-size', 11).attr('dy', '1.1em');
+    if (x.step() < 40) xa.selectAll('text').text((t) => "'" + t.slice(0, 2)); // phone width: the starting term only
     const bw = Math.min(32, x.bandwidth()), off = (x.bandwidth() - bw) / 2;
     const g = svg.append('g').selectAll('g').data(rows).join('g');
     g.append('rect').attr('x', (r) => x(lab(r)) + off).attr('width', bw).attr('y', (r) => y(r.rate)).attr('height', (r) => y(0) - y(r.rate)).attr('rx', 2).attr('fill', GOLD);
