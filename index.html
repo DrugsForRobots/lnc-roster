@@ -58,6 +58,18 @@
   .lnc .tip { position: absolute; pointer-events: none; background: var(--navy); border: 1px solid var(--gold); border-radius: 8px; padding: 0.4rem 0.6rem; font-size: 0.85rem; color: var(--cream); white-space: nowrap; }
   .lnc .tip .t { color: var(--gold); font-weight: 600; }
   .lnc .scroll { max-height: 34rem; overflow: auto; }
+  /* Scroll bars: room between the last column or row and the bar; slate thumb on the deep navy, gold on hover. */
+  .lnc .grid2 > * { min-width: 0; overflow-x: auto; }
+  .lnc .scroll { padding-right: 0.9rem; scrollbar-gutter: stable; }
+  .lnc .scroll, .lnc .grid2 > :not(.card) { padding-bottom: 0.9rem; }
+  .lnc .scroll, .lnc .grid2 > * { scrollbar-width: thin; scrollbar-color: var(--slate) #0F1A30; }
+  @supports not (scrollbar-color: auto) {
+    .lnc .scroll::-webkit-scrollbar, .lnc .grid2 > *::-webkit-scrollbar { width: 10px; height: 10px; }
+    .lnc .scroll::-webkit-scrollbar-track, .lnc .grid2 > *::-webkit-scrollbar-track { background: #0F1A30; border-radius: 999px; }
+    .lnc .scroll::-webkit-scrollbar-thumb, .lnc .grid2 > *::-webkit-scrollbar-thumb { background: var(--slate); border: 2px solid #0F1A30; border-radius: 999px; }
+    .lnc .scroll::-webkit-scrollbar-thumb:hover, .lnc .grid2 > *::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    .lnc .scroll::-webkit-scrollbar-corner, .lnc .grid2 > *::-webkit-scrollbar-corner { background: transparent; }
+  }
   .lnc table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; color: var(--cream); }
   .lnc th { text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); position: sticky; top: 0; background: var(--panel); padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--gold); }
   .lnc td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
